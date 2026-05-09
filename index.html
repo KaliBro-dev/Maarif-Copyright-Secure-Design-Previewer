@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maarif-Copyright | Secure Preview</title>
+    <style>
+        body { background-color: #1a1a1a; color: #f4f4f4; font-family: sans-serif; text-align: center; }
+        
+        /* Protection Overlay */
+        .preview-container {
+            position: relative;
+            display: inline-block;
+            margin-top: 50px;
+            user-select: none;
+        }
+
+        /* Blurs image by default to prevent clean screenshots */
+        .design-image {
+            max-width: 80%;
+            filter: blur(15px);
+            transition: filter 0.3s ease;
+            border: 2px solid #gold;
+        }
+
+        /* Image reveals only when mouse is held down */
+        .preview-container:active .design-image {
+            filter: blur(0);
+        }
+
+        /* Dynamic Watermark Overlay */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;"> <h1>Maarif-Copyright</h1>
+    <p>Hold Left-Click to view the design. Right-click and screenshots are restricted.</p>
+
+    <div class="preview-container">
+        <img src="your-design.png" alt="Client Design" class="design-image">
+        <div class="watermark">PROPERTY OF DAR AL MAARIF</div>
+    </div>
+
+    <script>
+        // Detection for common screenshot keys
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen') {
+                navigator.clipboard.writeText(''); // Clear clipboard
+                alert('Screenshots are prohibited on this preview.');
+            }
+        });
+    </script>
+</body>
+</html>
