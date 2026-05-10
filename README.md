@@ -1,17 +1,49 @@
-​Maarif-Copyright: Secure Design Previewer
-​Project Overview
-​Maarif-Copyright is a web-based security tool developed to protect the Intellectual Property (IP) of graphic designers during the client approval phase. It provides a secure environment for clients to review designs while implementing technical deterrents against unauthorized capturing, such as right-click saving and high-quality screenshots.
-​The Problem
-​In a fast-paced design environment like Dar Al Maarif, sending high-resolution proofs to clients before final payment poses a risk of asset theft via simple screenshots or browser "Save Image" functions.  
-​Features & Security Logic
-​Anti-Screenshot Blur: The design remains blurred by default using CSS filters to prevent static screen captures. It only reveals the clear image when the user actively holds down the left-click.
-​Right-Click Disable: Integrated JavaScript prevents the standard context menu, stopping users from easily saving the image file.
-​Dynamic Watermarking: A permanent "Property of Dar Al Maarif" overlay ensures that even if a hardware-level capture occurs, the asset remains unusable for production.
-​Metadata Protection: Designed to be used in conjunction with metadata scrubbing to prevent information leakage.
-​Impact
-​Asset Protection: Provides a psychological and technical barrier against the unauthorized use of unpaid work.
-​Professional Branding: Maintains a secure and professional interface for client interactions, bridging the gap between creative output and technical security.
-​Usage
-​Host the index.html file on a secure web server.
-​Place your design file in the same directory.
-​Send the unique preview link to the client for review.
+# 🪄 MarifClipper Studio — Pure JS Client-Side PNG Auto-Cut Tool
+
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Platform](https://img.shields.io/badge/platform-GitHub%20Pages-blue)
+![Tech](https://img.shields.io/badge/tech-HTML5%20Canvas%20%7C%20Vanilla%20JS-indigo)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+**Live Demo:** [View Live Studio on GitHub Pages](https://github.io/) *(Update this link once hosted)*
+
+---
+
+## 📌 Executive Summary & Operational Context
+
+**MarifClipper Studio** is a highly interactive, lightweight, zero-dependency client-side application engineered to automate background removal and creative shape clipping for digital assets. 
+
+Built originally to solve real-world operational bottlenecks in fast-paced graphic and print production environments (such as batch processing design assets at **Dar Al Maarif**), this tool strips away the complexity of heavyweight desktop software. Staff can instantly remove backgrounds via smart tolerance flood-matching or apply precise vector clipping masks in seconds.
+
+### 🎯 Key Academic & Professional Evidence (UWL Portfolio Submission)
+* **Real-World Problem Solving:** Demonstrates client-side automation that drastically reduces manual editing time.
+* **Zero Backend Infrastructure:** Utilizes client-side browser capabilities entirely, making it 100% cost-free, secure (files never leave the user's device), and statically hostable.
+* **Algorithmic Application:** Implements Euclidean distance calculations across RGBA pixel matrices directly within the HTML5 Canvas API.
+
+---
+
+## 🚀 Features
+
+1. **Magic Auto-Cut (Flood Matching Engine)**
+   * Reads raw pixel image data (`Uint8ClampedArray`).
+   * Calculates Euclidean distance between the sampled background click and surrounding RGB channels.
+   * Dynamically alters the Alpha channel (`A = 0`) based on strict/loose tolerance sliders.
+
+2. **Creative Vector Masking**
+   * Uses programmatic pathing to apply clean, non-destructive clipping masks.
+   * Preset shapes include **Circle Badges**, **Rounded Boxes**, **Hexagons**, and **Promo Stars**.
+
+3. **Secure Client-Side Execution**
+   * High-speed `FileReader` API loading.
+   * Full privacy: Images are processed entirely in the local browser memory; no data is sent to external APIs or servers.
+
+---
+
+## 🛠️ Technical Architecture
+
+```text
+📁 png-autocut-tool/
+ ├── 📄 index.html      # Complete UI, Styles, Canvas Engine & Logic
+ ├── 📄 README.md       # Technical Documentation & Portfolio Evidence
+ ├── 📄 .gitignore      # Repository Ignore Configurations
+ └── 📄 LICENSE         # Open Source MIT License
